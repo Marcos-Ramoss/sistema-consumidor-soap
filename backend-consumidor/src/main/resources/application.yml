@@ -1,0 +1,35 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: consumidor-soap
+  main:
+    allow-bean-definition-overriding: true
+  
+logging:
+  level:
+    com.consumidor: DEBUG
+    org.springframework.ws: DEBUG
+    org.springframework.oxm: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+# Configurações do cliente SOAP
+soap:
+  client:
+    uri: http://localhost:8080/ws
+    timeout: 60000
+    connection-timeout: 30000
+    read-timeout: 60000
+
+# Configurações do OpenAPI (Swagger)
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+    tagsSorter: alpha
+    tryItOutEnabled: true
+  show-actuator: true
